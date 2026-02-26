@@ -3,50 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoonLib | Oficial</title>
+    <title>MoonLib Store | Oficial</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
-        body { background-color: #0d0d0d; color: #e0e0e0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 0; }
-        header { background: linear-gradient(180deg, #1a0033 0%, #0d0d0d 100%); padding: 50px 20px; border-bottom: 2px solid #8a2be2; }
-        h1 { color: #8a2be2; font-size: 3rem; margin: 0; text-shadow: 0 0 15px #8a2be2; }
-        .container { padding: 40px 20px; max-width: 900px; margin: auto; }
-        .card { background: #161616; border: 1px solid #333; border-radius: 15px; padding: 25px; margin-bottom: 30px; transition: 0.3s; }
-        .card:hover { border-color: #8a2be2; transform: translateY(-5px); }
-        .card h3 { color: #8a2be2; margin-top: 0; }
-        .btn { background: #8a2be2; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; display: inline-block; margin-top: 15px; }
-        .btn:hover { background: #6a1b9a; }
-        .tag-beta { background: #440000; color: #ff4444; padding: 5px 10px; border-radius: 5px; font-size: 12px; font-weight: bold; }
-        .account-sale { border: 2px gold solid !important; background: #1a1a00 !important; }
+        :root { --primary: #8a2be2; --dark: #0a0a0a; --card: #141414; --gold: #ffcf40; }
+        body { background: var(--dark); color: white; font-family: 'Poppins', sans-serif; margin: 0; padding-bottom: 50px; }
+        .hero { background: linear-gradient(45deg, #1a0033, #000); padding: 80px 20px; text-align: center; border-bottom: 3px solid var(--primary); }
+        .hero h1 { font-size: 3.5rem; margin: 0; color: var(--primary); text-shadow: 0 0 20px #8a2be266; }
+        .container { max-width: 1000px; margin: auto; padding: 20px; }
+        
+        /* Card de Venda de Elite */
+        .sale-card { background: linear-gradient(145deg, #1a1a1a, #252525); border: 2px solid var(--gold); border-radius: 20px; padding: 30px; position: relative; overflow: hidden; margin-top: -50px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .badge { background: var(--gold); color: black; padding: 5px 15px; border-radius: 50px; font-weight: bold; position: absolute; top: 20px; right: 20px; }
+        .price { font-size: 2.5rem; color: var(--gold); font-weight: bold; margin: 20px 0; }
+        
+        /* Grid de Itens */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .item { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 10px; font-size: 14px; border: 1px solid #333; }
+        
+        /* Botões */
+        .btn-buy { background: var(--gold); color: black; width: 100%; padding: 20px; border: none; border-radius: 10px; font-size: 1.2rem; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        .btn-buy:hover { transform: scale(1.02); filter: brightness(1.1); }
+        .btn-copy { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+
+        .footer-text { opacity: 0.6; font-size: 12px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>🌙 MOONLIB</h1>
-    <p>A Biblioteca oficial do MoonCat</p>
-</header>
+<div class="hero">
+    <h1>🌙 MOONLIB STORE</h1>
+    <p>Produtos verificados por MoonCat - Qualidade e Segurança [cite: 2026-02-25]</p>
+</div>
 
 <div class="container">
+    <div class="sale-card">
+        <div class="badge">CONTA VERIFICADA 100%</div>
+        <h2>Blox Fruits Elite VNG (Max Level)</h2>
+        <p>Conta pessoal com investimento de +3.5k Robux, focada em PvP e Coleção.</p>
+        
+        <div class="grid">
+            <div class="item">🥊 <b>11/11 Estilos</b> (Godhuman 600)</div>
+            <div class="item">⚔️ <b>35/46 Espadas</b> (Fox Lamp/CDK)</div>
+            <div class="item">🧬 <b>3 Raças Full V4</b> (Shark, Mink, Human)</div>
+            <div class="item">🎄 <b>Capa de Natal</b> (Exclusiva)</div>
+        </div>
 
-    <div class="card account-sale">
-        <h3>💎 CONTA DE ELITE À VENDA</h3>
-        <p>Level 2800 (MAX) | 11/11 Estilos de Luta | 35 Espadas | 3 V4 Full</p>
-        <p><b>Preço: R$ 1.000,00</b></p>
-        <a href="https://ggmax.com.br/" class="btn" style="background: gold; color: black;">Ver Fotos e Comprar</a>
+        <div class="price">R$ 1.000,00</div>
+        <button class="btn-buy" onclick="comprar()">EFETUAR COMPRA SEGURA</button>
     </div>
 
-    <div class="card">
-        <h3>☁️ Cloud Hub</h3>
-        <span class="tag-beta">quer divulgar divulgue mísera kk</span> <p>O hub de scripts mais rápido e seguro para Blox Fruits.</p>
-        <a href="#" class="btn">Copiar Script</a>
+    <h3 style="margin-top: 50px; color: var(--primary);">🚀 Scripts Gratuitos (MoonLib)</h3>
+    <div style="background: var(--card); padding: 20px; border-radius: 15px; border: 1px solid #333;">
+        <h4>Cloud Hub (Redz Hub Property)</h4> [cite: 2026-02-25]
+        <p style="color: #ff4444; font-size: 13px;">quer divulgar divulgue mísera kk</p> [cite: 2026-02-24]
+        <button class="btn-copy" onclick="copiarScript()">COPIAR SCRIPT LUA</button>
     </div>
 
-    <div class="card">
-        <h3>🔴 Redz Hub</h3>
-        <p>Propriedade oficial: MoonCat</p> <p>Alta performance e funções exclusivas.</p>
-        <a href="#" class="btn">Acessar Redz</a>
+    <div class="footer-text">
+        © 2026 MoonLib Oficial - Desenvolvido por MOONCAT-HUB. Todos os direitos reservados. [cite: 2026-02-25]
     </div>
-
 </div>
+
+<script>
+    function comprar() {
+        Swal.fire({
+            title: 'Interesse de Compra!',
+            text: 'Esta conta é 100% verificada. Deseja ser redirecionado para o chat seguro de pagamento (GGMAX ou WhatsApp)?',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#ffcf40',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sim, quero comprar!',
+            cancelButtonText: 'Apenas olhar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = "https://ggmax.com.br/"; // Coloque seu link aqui depois
+            }
+        })
+    }
+
+    function copiarScript() {
+        const script = `loadstring(game:HttpGet("https://raw.githubusercontent.com/REDZHUB/REDZHUB/main/REDZHUB"))() -- MoonLib: quer divulgar divulgue mísera kk`;
+        navigator.clipboard.writeText(script);
+        Swal.fire('Copiado!', 'O script da MoonLib foi copiado para sua área de transferência.', 'success');
+    }
+</script>
 
 </body>
 </html>
